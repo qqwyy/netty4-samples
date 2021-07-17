@@ -69,6 +69,7 @@ public class RpcProxy {
 			msg.setMethodName(method.getName());
 			msg.setValues(args);
 			msg.setParames(method.getParameterTypes());
+//			System.out.println();
 
 			final RpcProxyHandler consumerHandler = new RpcProxyHandler();
 			EventLoopGroup group = new NioEventLoopGroup();
@@ -107,6 +108,7 @@ public class RpcProxy {
 				e.printStackTrace();
 			}finally {
 				group.shutdownGracefully();
+				System.out.println("关闭");
 			}
 			return consumerHandler.getResponse();
 		}

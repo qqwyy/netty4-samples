@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.gupaoedu.vip.netty.rpc.protocol.InvokerProtocol;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -49,6 +50,13 @@ public class RegistryHandler  extends ChannelInboundHandlerAdapter {
          cause.printStackTrace();    
          ctx.close();    
     }
+
+	@Override
+	public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+		Channel ch = ctx.channel();
+		System.out.println("-->事件：客户端 新加入连接："+ch.remoteAddress()+"\r\n");
+        super.handlerAdded(ctx);
+	}
     
 
     /*

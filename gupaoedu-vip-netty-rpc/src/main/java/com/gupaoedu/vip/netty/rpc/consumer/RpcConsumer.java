@@ -13,10 +13,10 @@ public class RpcConsumer {
 
         IRpcService service = RpcProxy.create(IRpcService.class);
         
-        System.out.println("8 + 2 = " + service.add(8, 2));
-        System.out.println("8 - 2 = " + service.sub(8, 2));
-        System.out.println("8 * 2 = " + service.mult(8, 2));
-        System.out.println("8 / 2 = " + service.div(8, 2));
+        System.out.println("8 + 2 = " + service.add(8, 2) +"   threadId:"+Thread.currentThread().getId());
+        System.out.println("8 - 2 = " + service.sub(8, 2) +"   threadId:"+Thread.currentThread().getId());
+        System.out.println("8 * 2 = " + service.mult(8, 2)+"   threadId:"+Thread.currentThread().getId());
+        System.out.println("8 / 2 = " + service.div(8, 2) +"   threadId:"+Thread.currentThread().getId());
     }
     
 }
